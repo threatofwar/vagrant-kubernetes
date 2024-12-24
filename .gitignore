@@ -1,0 +1,11 @@
+.vagrant/
+*.log
+*.tmp
+*.swp
+*.bak
+.DS_Store       # macOS system files
+Thumbs.db       # Windows system files
+.idea/
+.vscode/
+*.kube/config   # Kubernetes config files (if they contain sensitive data)
+docker-compose.override.yml
