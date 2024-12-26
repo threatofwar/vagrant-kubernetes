@@ -18,11 +18,3 @@ cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.ipv4.ip_forward = 1
 EOF
 sudo sysctl --system
-
-sudo kubeadm init --apiserver-advertise-address "$(ip a show enp0s8 | grep inet | awk '{print $2}' | head -n 1 | cut -d/ -f1)" --pod-network-cidr "10.244.0.0/16" --upload-certs
-mkdir -p /home/vagrant/.kube
-sudo cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
-sudo chown vagrant:vagrant /home/vagrant/.kube/config
-
-#kubectl taint nodes k8s-controlplane node.kubernetes.io/not-ready:NoSchedule-
-sudo -u vagrant kubectl apply -f https://reweave.azurewebsites.net/k8s/v1.29/net.yaml

@@ -9,3 +9,5 @@ Thumbs.db       # Windows system files
 .vscode/
 *.kube/config   # Kubernetes config files (if they contain sensitive data)
 docker-compose.override.yml
+token_and_cert_hash.txt
+config_temp
